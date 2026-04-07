@@ -98,6 +98,7 @@
             background-size: 24px 24px;
         }
     </style>
+<style>html{scroll-behavior:smooth}</style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
 <!-- Header: TopNavBar -->
@@ -109,14 +110,12 @@
 <a class="text-slate-400 hover:text-blue-300 hover:bg-white/5 cursor-pointer transition-all px-2 py-1" href="#">Story</a>
 <a class="text-slate-400 hover:text-blue-300 hover:bg-white/5 cursor-pointer transition-all px-2 py-1" href="#">Blog</a>
 </div>
-<button class="bg-transparent border border-blue-400 text-blue-400 px-4 py-2 font-mono text-xs uppercase tracking-tight hover:bg-blue-400/10 active:scale-95 transition-all">
-                [ ./brew.sh ]
-            </button>
+<a href="#waitlist" class="bg-transparent border border-blue-400 text-blue-400 px-4 py-2 font-mono text-xs uppercase tracking-tight hover:bg-blue-400/10 active:scale-95 transition-all cursor-pointer">[ ./brew.sh ]</a>
 </nav>
 </header>
 <main class="pt-20">
 <!-- Hero Section -->
-<section class="relative min-h-[870px] flex flex-col justify-center items-start px-6 lg:px-24 brutalist-grid overflow-hidden">
+<section id="hero" class="relative min-h-[870px] flex flex-col justify-center items-start px-6 lg:px-24 brutalist-grid overflow-hidden">
 <div class="max-w-4xl z-10">
 <div class="font-mono text-primary mb-6 text-lg md:text-2xl opacity-80">
 <span class="text-tertiary">$</span> sudo brew --origin=Ethiopia --roast=light<span class="terminal-cursor"></span>
@@ -128,12 +127,8 @@
                     Single-origin beans, sourced from the world's best farms. Roasted locally. Shipped directly to your terminal.
                 </p>
 <div class="flex flex-wrap gap-4 font-mono">
-<button class="bg-primary text-on-primary px-8 py-4 text-lg font-bold transition-all active:scale-95 hover:brightness-110">
-                        [ ./shop.sh ]
-                    </button>
-<button class="border border-outline-variant text-on-surface-variant px-8 py-4 text-lg font-bold transition-all hover:bg-white/5 active:scale-95">
-                        [ --learn-more ]
-                    </button>
+<a href="#products" class="bg-primary text-on-primary px-8 py-4 text-lg font-bold transition-all active:scale-95 hover:brightness-110 font-mono">[ ./shop.sh ]</a>
+<a href="#products" class="border border-outline-variant text-on-surface-variant px-8 py-4 text-lg font-bold transition-all hover:bg-white/5 active:scale-95 font-mono">[ --learn-more ]</a>
 </div>
 </div>
 <!-- Decorative ASCII Column -->
@@ -150,7 +145,7 @@
             </div>
 </section>
 <!-- Product Feature Section -->
-<section class="py-24 px-6 bg-surface-container-low">
+<section id="products" class="py-24 px-6 bg-surface-container-low">
 <div class="max-w-screen-2xl mx-auto">
 <div class="flex items-center gap-4 mb-16">
 <div class="h-px flex-grow bg-outline-variant/20"></div>
@@ -179,9 +174,7 @@
                             </div>
 </div>
 <div class="p-6 pt-0">
-<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
-                                [ ./checkout.sh ]
-                            </button>
+<a href="#waitlist" class="block w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors text-center">[ ./checkout.sh ]</a>
 </div>
 </div>
 <!-- Card 2 -->
@@ -205,9 +198,7 @@
                             </div>
 </div>
 <div class="p-6 pt-0">
-<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
-                                [ ./checkout.sh ]
-                            </button>
+<a href="#waitlist" class="block w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors text-center">[ ./checkout.sh ]</a>
 </div>
 </div>
 <!-- Card 3 -->
@@ -231,9 +222,7 @@
                             </div>
 </div>
 <div class="p-6 pt-0">
-<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
-                                [ ./checkout.sh ]
-                            </button>
+<a href="#waitlist" class="block w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors text-center">[ ./checkout.sh ]</a>
 </div>
 </div>
 </div>
@@ -251,7 +240,7 @@
 </div>
 </section>
 <!-- Email Capture: Join the Beta -->
-<section class="py-32 px-6">
+<section id="waitlist" class="py-32 px-6">
 <div class="max-w-3xl mx-auto text-center">
 <h2 class="font-headline text-4xl font-bold mb-4">Join the Beta</h2>
 <p class="font-body text-on-surface-variant mb-12">Get early access to our limited micro-lot releases. No spam, just high-performance caffeine.</p>
