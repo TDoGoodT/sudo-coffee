@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<title>sudo.coffee — Specialty Coffee for Developers</title>
+<meta name="description" content="High-end specialty coffee for programmers. Single-origin beans, roasted locally, shipped to your terminal."/>
+<meta property="og:title" content="sudo.coffee"/>
+<meta property="og:description" content="Specialty coffee for people who take their craft seriously."/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#613f29",
+                        "on-secondary-fixed": "#2e1504",
+                        "surface-container-low": "#181c22",
+                        "surface-container-lowest": "#0a0e14",
+                        "on-primary": "#00315c",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#2d3137",
+                        "tertiary-container": "#d29922",
+                        "outline-variant": "#414752",
+                        "secondary": "#edbca0",
+                        "primary-container": "#58a6ff",
+                        "surface-container-high": "#262a31",
+                        "on-primary-fixed": "#001c38",
+                        "primary-fixed": "#d3e4ff",
+                        "on-surface-variant": "#c0c7d4",
+                        "on-secondary": "#472915",
+                        "on-surface": "#dfe2eb",
+                        "on-primary-container": "#003a6b",
+                        "surface-tint": "#a2c9ff",
+                        "on-secondary-container": "#daab90",
+                        "on-primary-fixed-variant": "#004882",
+                        "inverse-surface": "#dfe2eb",
+                        "primary": "#a2c9ff",
+                        "inverse-primary": "#0060aa",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#5f4100",
+                        "on-background": "#dfe2eb",
+                        "on-tertiary-container": "#4d3500",
+                        "secondary-fixed": "#ffdbc8",
+                        "on-error": "#690005",
+                        "background": "#10141a",
+                        "surface": "#10141a",
+                        "surface-dim": "#10141a",
+                        "surface-bright": "#353940",
+                        "tertiary-fixed-dim": "#fabc45",
+                        "primary-fixed-dim": "#a2c9ff",
+                        "secondary-fixed-dim": "#edbca0",
+                        "on-tertiary-fixed": "#271900",
+                        "outline": "#8b919d",
+                        "surface-container-highest": "#31353c",
+                        "tertiary": "#fabc45",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#422c00",
+                        "surface-variant": "#31353c",
+                        "surface-container": "#1c2026",
+                        "secondary-container": "#613f29",
+                        "tertiary-fixed": "#ffdeaa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk", "monospace"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: #a2c9ff;
+            animation: cursor-blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+        .brutalist-grid {
+            background-image: radial-gradient(circle at 2px 2px, rgba(162, 201, 255, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Header: TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
+<nav class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold text-blue-400 font-mono tracking-tight">sudo.coffee</div>
+<div class="hidden md:flex items-center space-gap gap-8 font-mono uppercase tracking-tight text-xs">
+<a class="text-blue-400 border-b border-blue-400 pb-1 cursor-pointer transition-all" href="#">Shop</a>
+<a class="text-slate-400 hover:text-blue-300 hover:bg-white/5 cursor-pointer transition-all px-2 py-1" href="#">Story</a>
+<a class="text-slate-400 hover:text-blue-300 hover:bg-white/5 cursor-pointer transition-all px-2 py-1" href="#">Blog</a>
+</div>
+<button class="bg-transparent border border-blue-400 text-blue-400 px-4 py-2 font-mono text-xs uppercase tracking-tight hover:bg-blue-400/10 active:scale-95 transition-all">
+                [ ./brew.sh ]
+            </button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex flex-col justify-center items-start px-6 lg:px-24 brutalist-grid overflow-hidden">
+<div class="max-w-4xl z-10">
+<div class="font-mono text-primary mb-6 text-lg md:text-2xl opacity-80">
+<span class="text-tertiary">$</span> sudo brew --origin=Ethiopia --roast=light<span class="terminal-cursor"></span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface mb-8 leading-[0.9]">
+                    Specialty Coffee for People Who <span class="text-primary-container">Take Their Craft Seriously.</span>
+</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant mb-12 max-w-2xl leading-relaxed">
+                    Single-origin beans, sourced from the world's best farms. Roasted locally. Shipped directly to your terminal.
+                </p>
+<div class="flex flex-wrap gap-4 font-mono">
+<button class="bg-primary text-on-primary px-8 py-4 text-lg font-bold transition-all active:scale-95 hover:brightness-110">
+                        [ ./shop.sh ]
+                    </button>
+<button class="border border-outline-variant text-on-surface-variant px-8 py-4 text-lg font-bold transition-all hover:bg-white/5 active:scale-95">
+                        [ --learn-more ]
+                    </button>
+</div>
+</div>
+<!-- Decorative ASCII Column -->
+<div class="absolute right-10 top-1/2 -translate-y-1/2 hidden xl:block font-mono text-[10px] text-primary/10 select-none pointer-events-none whitespace-pre">
+                (
+                 )     (
+                (       )
+            _________
+           |         |
+           |  SUDO   |
+           |  COFFEE |
+           |         |
+           \_________|
+            </div>
+</section>
+<!-- Product Feature Section -->
+<section class="py-24 px-6 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4 mb-16">
+<div class="h-px flex-grow bg-outline-variant/20"></div>
+<h2 class="font-headline text-2xl uppercase tracking-[0.2em] text-on-surface-variant">Available Repositories</h2>
+<div class="h-px flex-grow bg-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-highest border border-outline-variant/20 flex flex-col h-full group">
+<div class="bg-surface-container flex items-center justify-between px-4 py-2 border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[10px] font-mono text-outline italic">dark_mode.roast</div>
+</div>
+<div class="p-6 flex-grow">
+<img class="w-full h-48 object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Close-up of deep dark oily roasted coffee beans in a sleek matte black container on a metallic industrial surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnvsmPLqL0DKrGwoKITCZT5diUdJhN64qT0BIg-nWUzgpHVr0Q15iMPk6jwOhGt2Ar3W3g7M_ZY5ONb3wKDBtOwCGnCAFzPrjRwKMJ68W0pr8GnpqSe2BOYWIoEFYXhoeW8QvMfyte79zxCgj3W-m66vXMMamofuGB4XisJwfwQLRJB-izC1Ci-_yZNbo8SwA7i7fM5mNLRf4lJGrOIhznhqUs8iOjy-qOq84qvz-Qbw8iEPTYjhRV6gD5j3GBXarIsiTGTQ4dQ0w"/>
+<h3 class="font-headline text-2xl font-bold mb-2">Dark Mode Roast</h3>
+<p class="font-body text-on-surface-variant mb-6 h-12">Deep and bold, full-bodied profile with notes of dark chocolate and carbon.</p>
+<div class="bg-surface p-3 font-mono text-xs text-secondary-container mb-6 border-l-2 border-secondary">
+<span class="text-tertiary"># stats</span><br/>
+                                origin: Sumatra<br/>
+                                altitude: 1500m
+                            </div>
+</div>
+<div class="p-6 pt-0">
+<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
+                                [ ./checkout.sh ]
+                            </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-highest border border-outline-variant/20 flex flex-col h-full group">
+<div class="bg-surface-container flex items-center justify-between px-4 py-2 border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[10px] font-mono text-outline italic">v1.0_ethiopian.light</div>
+</div>
+<div class="p-6 flex-grow">
+<img class="w-full h-48 object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Artisanal pour over coffee setup with bright amber liquid flowing into a glass carafe, clinical laboratory aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_3JEGwUPR04AxuzTMxRZq2x6YO99a-nbh7VvMVbsh1sb-5GI-SFfsUfj-Onn-TdJpR9G4N-8T_mOSf8YPUZsqpoVr8rpKEOLwqU_ilBT4BavhQKW6dR_G5m4UfQ4YmTm5iA7B9LJGce2dIj--4pgMnr1HquFn90IKP3sNQwaK0Mi6ioBcZcjVIhZ0h36f8TVpAetpApY3k47QVMw0cwEDbiH0ix9uxhcatgfdyrzzAG3d3jXu9I-ja480HBySFrkoRZ5xEICy01M"/>
+<h3 class="font-headline text-2xl font-bold mb-2">v1.0 Ethiopian Light</h3>
+<p class="font-body text-on-surface-variant mb-6 h-12">Bright and complex architecture with berry notes and floral finish.</p>
+<div class="bg-surface p-3 font-mono text-xs text-secondary-container mb-6 border-l-2 border-secondary">
+<span class="text-tertiary"># stats</span><br/>
+                                origin: Yirgacheffe<br/>
+                                altitude: 2100m
+                            </div>
+</div>
+<div class="p-6 pt-0">
+<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
+                                [ ./checkout.sh ]
+                            </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-highest border border-outline-variant/20 flex flex-col h-full group">
+<div class="bg-surface-container flex items-center justify-between px-4 py-2 border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[10px] font-mono text-outline italic">stack_overflow.blend</div>
+</div>
+<div class="p-6 flex-grow">
+<img class="w-full h-48 object-cover mb-6 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Steam rising from a ceramic mug of black coffee sitting next to a high-end mechanical keyboard in a dimly lit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYeH_liHW3-O14b5zEm4sp03oP2IriaTOd5otQ4WQRhieM0PzSZPRygThBx0qotW5tw6nPzqgc3zJ92fWvisVoPb0AjK-8FLsMEM702vesHOhFLQeoduZZ53RljlbgE-CSq67SjqrdnmWqD8X6exHT7b-KvqEAdv5V3gRXypDWEnnRVHyyHfGe2m4f3lAS36GFb9wTeYbhfVwsCKbkx3SQhvzbXY9KUlIp6rHLX5aXZiiKAuK-3bvJeAHCzTjwPRyLTmjDO6DJIys"/>
+<h3 class="font-headline text-2xl font-bold mb-2">Stack Overflow Blend</h3>
+<p class="font-body text-on-surface-variant mb-6 h-12">Balanced daily driver. Reliable uptime for long debugging sessions.</p>
+<div class="bg-surface p-3 font-mono text-xs text-secondary-container mb-6 border-l-2 border-secondary">
+<span class="text-tertiary"># stats</span><br/>
+                                origin: Brazil/Colombia<br/>
+                                altitude: 1200m
+                            </div>
+</div>
+<div class="p-6 pt-0">
+<button class="w-full bg-surface text-primary border border-primary/20 py-3 font-mono text-sm hover:bg-primary/5 transition-colors">
+                                [ ./checkout.sh ]
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="py-12 border-y border-white/5 bg-surface-container-lowest">
+<div class="max-w-screen-2xl mx-auto px-6 flex flex-col items-center justify-center text-center">
+<p class="font-headline text-xl md:text-3xl italic text-on-surface mb-4">
+                    "The best coffee I have had since I switched to arch"
+                </p>
+<div class="font-mono text-primary text-sm tracking-widest">
+                    &gt; user@github:~$ <span class="text-on-surface-variant font-body italic">— verification successful</span>
+</div>
+</div>
+</section>
+<!-- Email Capture: Join the Beta -->
+<section class="py-32 px-6">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-headline text-4xl font-bold mb-4">Join the Beta</h2>
+<p class="font-body text-on-surface-variant mb-12">Get early access to our limited micro-lot releases. No spam, just high-performance caffeine.</p>
+<form action="https://formspree.io/f/xyzgppqd" method="POST" class="bg-surface-container border border-outline-variant/30 p-2 flex flex-col md:flex-row gap-4 items-center">
+<div class="flex-grow flex items-center px-4 w-full">
+<span class="text-primary font-mono mr-3">&gt;</span>
+<input name="email" class="bg-transparent border-none focus:ring-0 w-full font-mono text-on-surface placeholder:text-outline/50" placeholder="curl sudo.coffee/waitlist --email=you@example.com" type="email" required/>
+</div>
+<button type="submit" class="w-full md:w-auto bg-tertiary text-on-tertiary px-10 py-3 font-mono font-bold tracking-tight active:scale-95 transition-all">
+    [ --submit ]
+</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 w-full py-12 px-6 border-t border-white/5 font-mono text-xs uppercase">
+<div class="flex flex-col items-center gap-8 max-w-screen-2xl mx-auto text-center">
+<div class="text-blue-400 font-mono text-lg font-bold">sudo.coffee</div>
+<div class="flex flex-wrap justify-center gap-8 text-slate-500">
+<a class="hover:text-blue-400 transition-colors duration-200" href="#">github</a>
+<a class="hover:text-blue-400 transition-colors duration-200" href="#">docs</a>
+<a class="hover:text-blue-400 transition-colors duration-200" href="#">status</a>
+<a class="hover:text-blue-400 transition-colors duration-200 underline text-orange-200" href="#">terms</a>
+</div>
+<div class="whitespace-pre text-[8px] text-slate-700 select-none">
+    _
+   | |
+   | |  __
+   | | /  \
+   | | |  |
+   | | \__/
+   | |
+   |_|
+            </div>
+<div class="text-slate-500">
+                © 2025 sudo.coffee — v1.0.0
+            </div>
+</div>
+</footer>
+</body></html>
